@@ -62,9 +62,6 @@ def cadastrar_novas_pessoa():
     if not cap.isOpened():
         print("Erro ao abrir a câmera!", end="\n\n\n")
         return
-    
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 800)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 600)
 
     detector = cv2.CascadeClassifier(CLASSIFICADOR_ROSTO)
     contador = 0
@@ -148,9 +145,6 @@ def ComplementarBancoImgs():
     if not cap.isOpened():
         print("Erro ao abrir a câmera!", end="\n\n\n")
         return
-    
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 800)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 600)
 
     detector = cv2.CascadeClassifier(CLASSIFICADOR_ROSTO)
     contador = os.listdir(pasta_pessoa)
@@ -249,9 +243,6 @@ def SobreescreverBancoImgs():
     if not cap.isOpened():
         print("Erro ao abrir a câmera!", end="\n\n\n")
         return
-    
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 800)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 600)
 
     detector = cv2.CascadeClassifier(CLASSIFICADOR_ROSTO)
     contador = 0

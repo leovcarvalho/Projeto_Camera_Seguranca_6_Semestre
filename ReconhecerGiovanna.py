@@ -15,7 +15,7 @@ def ReconhecerGiovanna():
     face_mesh = mp.solutions.face_mesh.FaceMesh(
     max_num_faces=1,
     refine_landmarks=True,
-    min_detection_confidence=0.5,
+    min_detection_confidence=0.7,
     min_tracking_confidence=0.5
 )
 
@@ -33,9 +33,6 @@ def ReconhecerGiovanna():
     tempo_emocao = 1550.0
 
     limitar_confianca = 50
-    # Tempo de log de emocao
-    tempo_min_log= tempo_emocao 
-
 
     # Carrega o modelo LBPH (seu modelo treinado)
     modelo = cv2.face.LBPHFaceRecognizer_create()
@@ -63,16 +60,12 @@ def ReconhecerGiovanna():
     # Para controle de log no terminal
     log_deepface_timestamp = {} 
 
-
     # Abre a câmera
     cap = cv2.VideoCapture(0)
 
     if not cap.isOpened():
         print("Erro ao abrir camêra")
         exit()
-        
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 800)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 600)
 
     # Limpa o terminal na inicialização 
     clear_terminal()
@@ -293,7 +286,7 @@ def ReconhecerGiovanna():
             break
         if tecla == ord('r'):
             cv2.destroyAllWindows()
-            object = reconhecimento_yolo(cap)
+            reconhecimento_yolo(cap)
             
 
     # Finaliza a camera
